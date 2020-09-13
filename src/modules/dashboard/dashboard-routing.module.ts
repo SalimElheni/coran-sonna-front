@@ -29,6 +29,20 @@ export const ROUTES: Routes = [
         component: dashboardContainers.DashboardComponent,
     },
     {
+        path: 'd2',
+        data: {
+            title: 'Dashboard - SB Admin Angular',
+            breadcrumbs: [
+                {
+                    text: 'Dashboard',
+                    active: true,
+                },
+            ],
+        } as SBRouteData,
+        canActivate: [],
+        component: dashboardContainers.Dashboard2Component,
+    },
+    {
         path: 'static',
         data: {
             title: 'Dashboard Static - SB Admin Angular',
