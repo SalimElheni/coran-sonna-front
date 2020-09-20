@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { loginModel } from '../_models';
+import { CoursesService } from '../_services/courses.service';
 
 @Component({
     selector: 'sb-landing-page',
@@ -11,19 +12,25 @@ import { loginModel } from '../_models';
 export class LandingPageComponent implements OnInit {
     isAdminLogin = false;
     model: loginModel = {
-        password: '',
-        email: '',
-        isAdmin: false,
+        Password: '',
+        Email: '',
+        IsAdmin: false,
     };
-    constructor(private router: Router) {}
+    constructor(private router: Router, private coursesService: CoursesService) {}
 
     ngOnInit(): void {}
     onLogin() {
-        this.model.isAdmin = this.isAdminLogin;
-        if (this.model.isAdmin === true) {
-            this.router.navigateByUrl('/courses/dashboard');
-        } else {
-            this.router.navigateByUrl('/courses/home');
-        }
+        this.model.IsAdmin = this.isAdminLogin;
+        this.coursesService.login(this.model).subscribe(results => {
+            if (results.Success === true) {
+                if (this.model.IsAdmin === true) {
+                    this.router.navigateByUrl('/courses/dashboard');
+                } else {
+                    this.router.navigateByUrl('/courses/home');
+                }
+            } else {
+                alert(results.Errors[0]);
+            }
+        });
     }
 }

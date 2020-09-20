@@ -1,6 +1,16 @@
 <sb-layout-dashboard>
     <div class="main-content">
         <sb-card>
+        <!-- LIVE SESSION -->
+    <div class="card-body">
+        <div class="form-group form-inline row">
+            <label class="col-3" for="liveUrl">Live url</label>
+            <input id="liveUrl" class="form-control ml-2 w-100 col-8" type="text" name="liveUrl" [(ngModel)]="liveUrl" />
+
+        </div>
+    </div>
+</sb-card>
+        <sb-card>
             <div class="card-header d-flex">
                 <fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>Liste des liens
                 <button type="button" class="btn btn-success btn-sm ml-auto" (click)="onAddCourse()">
@@ -8,7 +18,11 @@
                 </button>
             </div>
             <div class="card-body">
-                <div class="form-group form-inline">Full text search: <input class="form-control ml-2 w-75" type="text"
+
+                <!-- DIFFERATE -->
+                <div class="form-group form-inline row">
+                    <label class="col-3" for="liveUrl">Full text search</label>
+                    <input class="form-control ml-2 w-100 col-8" type="text"
                         name="searchTerm" [(ngModel)]="countryService.searchTerm" /><span class="ml-3"
                         *ngIf="countryService.loading$ | async">Loading...</span></div>
                 <table class="table table-striped">
@@ -33,7 +47,7 @@
                     <tbody>
                         <tr *ngFor="let country of courses">
                             <th scope="row">{{ country.Id }}</th>
-                            
+
                             <td>
                                 <!-- <ngb-highlight [result]="country.area | number" [term]="countryService.searchTerm">
                                 </ngb-highlight> -->
@@ -42,7 +56,7 @@
                             <td>
                                 <!-- <ngb-highlight [result]="country.population | number"
                                     [term]="countryService.searchTerm"></ngb-highlight> -->
-                                    {{ country.Link }}
+                                {{ country.Link }}
                             </td>
                             <td>
                                 {{ country.Description }}

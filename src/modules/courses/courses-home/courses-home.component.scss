@@ -1,0 +1,14 @@
+:host {
+    .header {
+        height: 10rem;
+        margin-bottom: 3rem;
+        .centered-div {
+            font-size: 4em;
+        }
+    }
+    .content {
+        .card {
+            width: 12rem;
+        }
+    }
+}

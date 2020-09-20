@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
     sortedDirection!: string;
 
     courses: LinkModel[] = [];
+    liveUrl = 'hhhhhhhhhhhhhhhhhhhhhhhhh';
 
     @ViewChildren(SBSortableHeaderDirective) headers!: QueryList<SBSortableHeaderDirective>;
 

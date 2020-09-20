@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 
-import { LinkModel, ResponseModel } from '../_models';
+import { LinkModel, loginModel, ResponseModel } from '../_models';
 
 @Injectable({
     providedIn: 'root',
@@ -13,5 +13,8 @@ export class CoursesService {
 
     getCourse() {
         return this.http.get<ResponseModel<LinkModel[]>>(`${this.url}/getall`);
+    }
+    login(data: loginModel) {
+        return this.http.post<ResponseModel<number>>(`${environment.api}/user/auth`, data);
     }
 }

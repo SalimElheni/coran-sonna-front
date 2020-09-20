@@ -1,1 +1,107 @@
-<p>courses-home works!</p>
+<div class="container pb-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="header bg-light">
+            <div class="row h-100">
+                <div class="col-3"></div>
+                <div class="col-6 text-center centered-div">DDDDDDDD DDDDDD</div>
+                <div class="col-3 h-100">
+                    <img class="h-100" src="assets/img/شعار-الجمعية.svg" alt="Card image cap">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Courses -->
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-12">
+                        <h5>llllllllllllllllll</h5>
+                        <hr />
+                        <div class="card d-inline-block mr-3 mb-3">
+                            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                            <div class="card-body">
+                                <h5 class="card-title">{{"course.Title"}}</h5>
+                                <p class="card-text">{{"course.Description"}}</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <br />
+                        <h5>llllllllllllllllll</h5>
+                        <hr />
+                        <div class="card-columns-">
+                            <div class="card d-inline-block mr-3 mb-3" *ngFor="let course of courses">
+                                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                                <div class="card-body">
+                                    <h5 class="card-title">{{course.Title}}</h5>
+                                    <p class="card-text">{{course.Description}}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Actualites -->
+            <div class="col-4">
+                <div class="">
+                    <div class="row -d-flex justify-content-end">
+                        <div class="col-12 d-flex justify-content-end mb-4" *ngFor="let course of courses">
+                            <div class="card d-inline-block w-100">
+                                <img class="card-img-top" src="https://i.stack.imgur.com/uYrBl.png"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

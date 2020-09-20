@@ -8,27 +8,26 @@
                     </div>
                     <div class="card-body">
 
-                        <form *ngIf="isAdminLogin === false; else adminLogin">
+                        <div *ngIf="isAdminLogin === false; else adminLogin">
                             <div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input
                                     class="form-control py-4" id="inputPassword" type="password"
-                                    placeholder="Enter password" [(ngModel)]="model && model.password" /></div>
+                                    placeholder="Enter password" [(ngModel)]="model && model.Password" /></div>
                             <div class="form-group">
                             </div>
                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                 <button type="button" class="btn btn-link" (click)="isAdminLogin = !isAdminLogin">Admin
                                     login</button>
                                 <a class="btn btn-primary" (click)="onLogin()">Login</a></div>
-                        </form>
+                        </div>
                         <ng-template #adminLogin>
-                            <form>
                                 <div class="form-group"><label class="small mb-1"
                                         for="inputEmailAddress">Email</label><input class="form-control py-4"
                                         id="inputEmailAddress" type="email" placeholder="Enter email address"
-                                        [(ngModel)]="model && model.email" /></div>
+                                        [(ngModel)]="model && model.Email" /></div>
                                 <div class="form-group"><label class="small mb-1"
                                         for="inputPassword">Password</label><input class="form-control py-4"
                                         id="inputPassword" type="password" placeholder="Enter password"
-                                        [(ngModel)]="model && model.password" /></div>
+                                        [(ngModel)]="model && model.Password" /></div>
                                 <div class="form-group">
 
                                 </div>
@@ -36,7 +35,6 @@
                                     <button type="button" class="btn btn-link"
                                         (click)="isAdminLogin = !isAdminLogin">Student login</button>
                                     <a class="btn btn-primary" (click)="onLogin()">Login</a></div>
-                            </form>
                         </ng-template>
                     </div>
                     <div class="card-footer text-center">
