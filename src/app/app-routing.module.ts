@@ -5,7 +5,7 @@ const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/dashboard',
+        redirectTo: '/courses',
     },
     {
         path: 'charts',
@@ -38,6 +38,10 @@ const routes: Routes = [
         path: 'version',
         loadChildren: () =>
             import('modules/utility/utility-routing.module').then(m => m.UtilityRoutingModule),
+    },
+    {
+        path: 'courses',
+        loadChildren: () => import('../modules/courses/courses.module').then(m => m.CoursesModule),
     },
     {
         path: '**',

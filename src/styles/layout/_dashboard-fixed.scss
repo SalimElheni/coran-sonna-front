@@ -1,7 +1,7 @@
 .sb-nav-fixed {
   .sb-topnav {
     @extend .fixed-top;
-    z-index: $zindex-topnav;
+    z-index: 1050; /* for ngb-modal $zindex-topnav;*/
   }
   #layoutSidenav {
     #layoutSidenav_nav {

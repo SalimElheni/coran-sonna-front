@@ -1,0 +1,75 @@
+<sb-layout-dashboard>
+    <div class="main-content">
+        <sb-card>
+            <div class="card-header d-flex">
+                <fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>Liste des liens
+                <button type="button" class="btn btn-success btn-sm ml-auto" (click)="onAddCourse()">
+                    <fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon> Ajouter
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="form-group form-inline">Full text search: <input class="form-control ml-2 w-75" type="text"
+                        name="searchTerm" [(ngModel)]="countryService.searchTerm" /><span class="ml-3"
+                        *ngIf="countryService.loading$ | async">Loading...</span></div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col" sbSortable="name" (sort)="onSort($event)"><span>Title</span>
+                                <sb-sort-icon *ngIf='sortedColumn === "name"' [direction]="sortedDirection">
+                                </sb-sort-icon>
+                            </th>
+                            <th scope="col" sbSortable="area" (sort)="onSort($event)"><span>Url</span>
+                                <sb-sort-icon *ngIf='sortedColumn === "area"' [direction]="sortedDirection">
+                                </sb-sort-icon>
+                            </th>
+                            <th scope="col" sbSortable="population" (sort)="onSort($event)"><span>Description</span>
+                                <sb-sort-icon *ngIf='sortedColumn === "population"' [direction]="sortedDirection">
+                                </sb-sort-icon>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let country of courses">
+                            <th scope="row">{{ country.Id }}</th>
+                            
+                            <td>
+                                <!-- <ngb-highlight [result]="country.area | number" [term]="countryService.searchTerm">
+                                </ngb-highlight> -->
+                                {{ country.Title }}
+                            </td>
+                            <td>
+                                <!-- <ngb-highlight [result]="country.population | number"
+                                    [term]="countryService.searchTerm"></ngb-highlight> -->
+                                    {{ country.Link }}
+                            </td>
+                            <td>
+                                {{ country.Description }}
+                            </td>
+                            <td class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-warning btn-sm ">
+                                    <fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm ml-2">
+                                    <fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-between p-2">
+                    <ngb-pagination [collectionSize]="total$ | async" [(page)]="countryService.page"
+                        [pageSize]="countryService.pageSize"></ngb-pagination><select class="custom-select"
+                        style="width: auto;" name="pageSize" [(ngModel)]="countryService.pageSize">
+                        <option [ngValue]="2">2 items per page</option>
+                        <option [ngValue]="4">4 items per page</option>
+                        <option [ngValue]="6">6 items per page</option>
+                    </select>
+                </div>
+
+            </div>
+        </sb-card>
+
+    </div>
+</sb-layout-dashboard>

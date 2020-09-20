@@ -3,16 +3,16 @@ import { SideNavItems, SideNavSection } from '@modules/navigation/models';
 export const sideNavSections: SideNavSection[] = [
     {
         text: 'CORE',
-        items: ['dashboard'],
+        items: ['courses'],
     },
-    {
-        text: 'INTERFACE',
-        items: ['layouts', 'pages'],
-    },
-    {
-        text: 'ADDONS',
-        items: ['charts', 'tables'],
-    },
+    // {
+    //     text: 'INTERFACE',
+    //     items: ['layouts', 'pages'],
+    // },
+    // {
+    //     text: 'ADDONS',
+    //     items: ['charts', 'tables'],
+    // },
 ];
 
 export const sideNavItems: SideNavItems = {
@@ -20,6 +20,11 @@ export const sideNavItems: SideNavItems = {
         icon: 'tachometer-alt',
         text: 'Dashboard',
         link: '/dashboard',
+    },
+    courses: {
+        icon: 'tachometer-alt',
+        text: 'Courses',
+        link: '/courses',
     },
     layouts: {
         icon: 'columns',
