@@ -1,23 +1,19 @@
 <div class="container pb-4">
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
+        <div style="justify-content: flex-end;" class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#"> إتصل بنا</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> عن الجمعية
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Action</a>
@@ -27,7 +23,14 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link disabled" href="#">بوابة الطالب</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">التسجيل</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">الرئيسية <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
@@ -36,7 +39,10 @@
         <div class="header bg-light">
             <div class="row h-100">
                 <div class="col-3"></div>
-                <div class="col-6 text-center centered-div">DDDDDDDD DDDDDD</div>
+                <div class="col-6 text-center centered-div">جمعية القرآن والسنّة<br/>
+                    <div class="col-6 text-center centered2-div">إملاء حياتك بالخير</div>
+
+                </div>
                 <div class="col-3 h-100">
                     <img class="h-100" src="assets/img/شعار-الجمعية.svg" alt="Card image cap">
                 </div>
@@ -47,7 +53,7 @@
             <div class="col-8">
                 <div class="row">
                     <div class="col-12">
-                        <h5>llllllllllllllllll</h5>
+                        <h2>رابط البث المباشر</h2>
                         <hr />
                         <div class="card d-inline-block mr-3 mb-3">
                             <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
@@ -62,7 +68,7 @@
                     </div>
                     <div class="col-12">
                         <br />
-                        <h5>llllllllllllllllll</h5>
+                        <h2>روابط تسجيلات الدروس</h2>
                         <hr />
                         <div class="card-columns-">
                             <div class="card d-inline-block mr-3 mb-3" *ngFor="let course of courses">
@@ -83,12 +89,15 @@
 
             <!-- Actualites -->
             <div class="col-4">
+                <br />
+                <h2 style="text-align:right">المستجدات</h2>
+                <hr />
                 <div class="">
                     <div class="row -d-flex justify-content-end">
                         <div class="col-12 d-flex justify-content-end mb-4" *ngFor="let course of courses">
                             <div class="card d-inline-block w-100">
-                                <img class="card-img-top" src="https://i.stack.imgur.com/uYrBl.png"
-                                    alt="Card image cap">
+                                <!-- <img class="card-img-top" src="https://i.stack.imgur.com/uYrBl.png"
+                                    alt="Card image cap"> -->
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">This is a wider card with supporting text below as a natural

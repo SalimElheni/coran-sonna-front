@@ -1,9 +1,17 @@
 :host {
+    @import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
     .header {
         height: 10rem;
         margin-bottom: 3rem;
         .centered-div {
             font-size: 4em;
+            font-family: 'Droid Arabic Kufi';
+            color: rgb(0, 68, 255);
+        }
+        .centered2-div {
+            font-size: 0.5em;
+            font-family: 'Droid Arabic Kufi';
+            color:#39B54A;
         }
     }
     .content {
@@ -11,4 +19,7 @@
             width: 12rem;
         }
     }
+    .rtl {
+  direction: rtl;
+}
 }

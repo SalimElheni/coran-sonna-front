@@ -3,42 +3,44 @@
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                    <div class="card-header">
-                        <h3 class="text-center font-weight-light my-4">Login</h3>
+                    <div class=" card-header text-center header">
+                        <h2 >تسجيل الدخول</h2>
                     </div>
                     <div class="card-body">
 
                         <div *ngIf="isAdminLogin === false; else adminLogin">
-                            <div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input
+                            <div class="form-group"><label class="small mb-1" for="inputPassword">أدخل كلمة المرور</label><input
                                     class="form-control py-4" id="inputPassword" type="password"
-                                    placeholder="Enter password" [(ngModel)]="model && model.Password" /></div>
+                                    placeholder="أدخل كلمة المرور" [(ngModel)]="model && model.Password" /></div>
                             <div class="form-group">
                             </div>
                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                <button type="button" class="btn btn-link" (click)="isAdminLogin = !isAdminLogin">Admin
-                                    login</button>
-                                <a class="btn btn-primary" (click)="onLogin()">Login</a></div>
+                                <button type="button" class="btn btn-link" (click)="isAdminLogin = !isAdminLogin">دخول المشرف</button>
+                                <a class="btn button2" (click)="onLogin()">تسجيل الدخول</a></div>
                         </div>
                         <ng-template #adminLogin>
                                 <div class="form-group"><label class="small mb-1"
-                                        for="inputEmailAddress">Email</label><input class="form-control py-4"
-                                        id="inputEmailAddress" type="email" placeholder="Enter email address"
+                                        for="inputEmailAddress">البريد الالكتروني</label><input class="form-control py-4"
+                                        id="inputEmailAddress" type="email" placeholder="أدخل عنوان البريد الالكتروني"
                                         [(ngModel)]="model && model.Email" /></div>
                                 <div class="form-group"><label class="small mb-1"
-                                        for="inputPassword">Password</label><input class="form-control py-4"
-                                        id="inputPassword" type="password" placeholder="Enter password"
+                                        for="inputPassword">كلمة المرور</label><input class="form-control py-4"
+                                        id="inputPassword" type="password" placeholder="أدخل كلمة المرور"
                                         [(ngModel)]="model && model.Password" /></div>
                                 <div class="form-group">
 
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                     <button type="button" class="btn btn-link"
-                                        (click)="isAdminLogin = !isAdminLogin">Student login</button>
-                                    <a class="btn btn-primary" (click)="onLogin()">Login</a></div>
+                                        (click)="isAdminLogin = !isAdminLogin">تسجيل دخول الطالب</button>
+                                    <a class="btn button2" (click)="onLogin()">تسجيل الدخول</a></div>
                         </ng-template>
                     </div>
-                    <div class="card-footer text-center">
-                        ""
+                    <div class="card-footer text-center footer">
+                       <h5>جمعية القرآن والسنة</h5>
+
+                        <img class = "card-img-bottom " src="assets/img/شعار-الجمعية.svg" alt="alt text" style="width:15%">
+
                     </div>
                 </div>
             </div>
