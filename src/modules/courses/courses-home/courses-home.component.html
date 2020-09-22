@@ -53,32 +53,32 @@
             <div class="col-8">
                 <div class="row">
                     <div class="col-12">
-                        <h2>رابط البث المباشر</h2>
+                        <h2 style="text-align:right">رابط البث المباشر</h2>
                         <hr />
-                        <div class="card d-inline-block mr-3 mb-3">
+                        <div class="card text-white bg-primary d-inline-block mr-0 mb-3">
                             <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                             <div class="card-body">
                                 <h5 class="card-title">{{"course.Title"}}</h5>
                                 <p class="card-text">{{"course.Description"}}</p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">Last updated 3 mins ago</small>
+                                <p style="color: white; font-size: 0.8rem">Last updated 3 mins ago </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <br />
-                        <h2>روابط تسجيلات الدروس</h2>
+                        <h2 style="text-align:right">روابط تسجيلات الدروس</h2>
                         <hr />
                         <div class="card-columns-">
-                            <div class="card d-inline-block mr-3 mb-3" *ngFor="let course of courses">
+                            <div class="card text-white bg-success d-inline-block mr-3 mb-3" *ngFor="let course of courses">
                                 <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                                 <div class="card-body">
                                     <h5 class="card-title">{{course.Title}}</h5>
                                     <p class="card-text">{{course.Description}}</p>
                                 </div>
                                 <div class="card-footer">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                    <p style="color: white; font-size: 0.8rem">Last updated 3 mins ago </p>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                 <div class="">
                     <div class="row -d-flex justify-content-end">
                         <div class="col-12 d-flex justify-content-end mb-4" *ngFor="let course of courses">
-                            <div class="card d-inline-block w-100">
+                            <div class="card bg-light d-inline-block w-100">
                                 <!-- <img class="card-img-top" src="https://i.stack.imgur.com/uYrBl.png"
                                     alt="Card image cap"> -->
                                 <div class="card-body">
@@ -104,7 +104,7 @@
                                         lead-in to additional content. This content is a little bit longer.</p>
                                 </div>
                                 <div class="card-footer">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                    <p style="color: rgb(0, 0, 0);font-size: 0.8rem">Last updated 3 mins ago </p>
                                 </div>
                             </div>
                         </div>
