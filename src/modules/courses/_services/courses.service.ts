@@ -11,10 +11,29 @@ export class CoursesService {
     url = `${environment.api}/Course`;
     constructor(private http: HttpClient) {}
 
-    getCourse() {
+    getCourses() {
         return this.http.get<ResponseModel<LinkModel[]>>(`${this.url}/getall`);
+    }
+    getCourse(id: number) {
+        return this.http.get<ResponseModel<LinkModel>>(`${this.url}/get?id=${id}`);
+    }
+    addCourse(data: LinkModel) {
+        return this.http.post<ResponseModel<number>>(`${this.url}/add`, data);
+    }
+    editCourse(data: LinkModel) {
+        return this.http.post<ResponseModel<number>>(`${this.url}/update`, data);
+    }
+    deleteCourse(id: number) {
+        return this.http.get<ResponseModel<number>>(`${this.url}/delete?id=${id}`);
     }
     login(data: loginModel) {
         return this.http.post<ResponseModel<number>>(`${environment.api}/user/auth`, data);
+    }
+
+    getLiveLink() {
+        return this.http.get<ResponseModel<LinkModel>>(`${this.url}/getLiveLink`);
+    }
+    setLiveLink(link: LinkModel) {
+        return this.http.post<ResponseModel<string>>(`${this.url}/setLiveLink`, link);
     }
 }

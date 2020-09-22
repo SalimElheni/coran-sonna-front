@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocalstorageService } from '@app/_services/local-storage.service';
 import { UserService } from '@modules/auth/services';
 
 @Component({
@@ -8,6 +10,14 @@ import { UserService } from '@modules/auth/services';
     styleUrls: ['top-nav-user.component.scss'],
 })
 export class TopNavUserComponent implements OnInit {
-    constructor(public userService: UserService) {}
+    constructor(
+        public userService: UserService,
+        private localStorage: LocalstorageService,
+        private router: Router
+    ) {}
     ngOnInit() {}
+    onLogout() {
+        this.localStorage.destroyToken();
+        this.router.navigateByUrl('/');
+    }
 }

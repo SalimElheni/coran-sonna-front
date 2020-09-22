@@ -2,7 +2,10 @@ import { SideNavItems, SideNavSection } from '@modules/navigation/models';
 
 export const sideNavSections: SideNavSection[] = [
     {
-        text: 'CORE',
+        items: ['home'],
+    },
+    {
+        text: 'DASHBOARD',
         items: ['courses'],
     },
     // {
@@ -21,10 +24,15 @@ export const sideNavItems: SideNavItems = {
         text: 'Dashboard',
         link: '/dashboard',
     },
-    courses: {
+    home: {
         icon: 'tachometer-alt',
+        text: 'Home',
+        link: '/courses/home',
+    },
+    courses: {
+        icon: 'book-open',
         text: 'Courses',
-        link: '/courses',
+        link: '/courses/dashboard',
     },
     layouts: {
         icon: 'columns',

@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { LinkModel } from '../_models';
+
 @Component({
     selector: 'sb-course-modal',
     templateUrl: './course-modal.component.html',
     styleUrls: ['./course-modal.component.scss'],
 })
 export class CourseModalComponent implements OnInit {
+    model: LinkModel = {} as LinkModel;
     constructor(public modal: NgbActiveModal) {}
 
     ngOnInit(): void {}

@@ -1,4 +1,4 @@
-<div class="modal-header py-1">
+<div class="modal-header bg-light">
     <h4 class="modal-title" id="modal-basic-title">Course</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
@@ -9,19 +9,19 @@
         <div class="row">
             <div class="col-8 form-group">
                 <label for="title">Title</label>
-                <input id="title" class="form-control" placeholder="" name="title">
+                <input id="title" ngbAutofocus class="form-control" placeholder="" name="title" [(ngModel)]="model && model.Title">
             </div>
             <div class="col-12 form-group">
                 <label for="url">Url</label>
-                <input id="url" class="form-control" placeholder="" name="url">
+                <input id="url" class="form-control" placeholder="" name="url" [(ngModel)]="model && model.Link">
             </div>
             <div class="col-12">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                <textarea class="form-control" id="description" name="description" rows="3" [(ngModel)]="model && model.Description"></textarea>
             </div>
         </div>
     </form>
 </div>
-<div class="modal-footer">
+<div class="modal-footer bg-light">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
 </div>

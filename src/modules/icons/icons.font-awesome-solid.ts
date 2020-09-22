@@ -9,13 +9,21 @@ import {
     faChartArea,
     faChartBar,
     faChartPie,
+    faCheck,
+    faCheckSquare,
     faChevronDown,
     faChevronUp,
     faColumns,
+    faEdit,
+    faHome,
+    faPlus,
+    faSave,
     faSearch,
     faTable,
     faTachometerAlt,
-    faUser,
+    faTrash,
+    faTrashAlt,
+    faUser
 } from '@fortawesome/free-solid-svg-icons';
 
 export const fontAwesomeSolidIcons = {
@@ -34,4 +42,12 @@ export const fontAwesomeSolidIcons = {
     faTable,
     faTachometerAlt,
     faUser,
+    faEdit,
+    faPlus,
+    faTrash,
+    faSave,
+    faCheckSquare,
+    faTrashAlt,
+    faCheck,
+    faHome,
 };

@@ -2,11 +2,30 @@
     <div class="main-content">
         <sb-card>
         <!-- LIVE SESSION -->
+        <div class="card-header d-flex">
+            <h6>Live course</h6>
+        <div class="ml-auto">
+                    <button type="button" class="btn btn-warning btn-sm ml-2" (click)="isLiveUrlDisabled = !isLiveUrlDisabled" *ngIf="isLiveUrlDisabled === true; else saveLiveUrl">
+                    <fa-icon class="mr-1" [icon]='["fas", "edit"]'></fa-icon>Modifier
+                </button>
+                <ng-template #saveLiveUrl>
+                    <button type="button" class="btn btn-primary btn-sm ml-2" (click)="onSaveLiveLink()">
+                        <fa-icon class="mr-1" [icon]='["fas", "check"]'></fa-icon> Valider
+                    </button>
+                </ng-template>
+        </div>
+            </div>
     <div class="card-body">
+        
+            <div class="form-group form-inline row">
+                <label class="col-2" for="liveTitle">Title</label>
+                <input id="liveTitle" class="form-control w-100 col-2" type="text" name="liveTitle" [(ngModel)]="liveLink && liveLink.Title" [disabled]="isLiveUrlDisabled == true"/>
+            <label class="col-1" for="liveLink">Url</label>
+            <input id="liveLink" class="form-control w-100 col-6" type="text" name="liveLink" [(ngModel)]="liveLink && liveLink.Link" [disabled]="isLiveUrlDisabled == true"/>
+        </div>
         <div class="form-group form-inline row">
-            <label class="col-3" for="liveUrl">Live url</label>
-            <input id="liveUrl" class="form-control ml-2 w-100 col-8" type="text" name="liveUrl" [(ngModel)]="liveUrl" />
-
+            <label class="col-2" for="liveDescription">Description</label>
+            <input id="liveDescription" class="form-control w-100 col-9" type="text" name="liveDescription" [(ngModel)]="liveLink && liveLink.Description" [disabled]="isLiveUrlDisabled == true"/>
         </div>
     </div>
 </sb-card>
@@ -14,17 +33,15 @@
             <div class="card-header d-flex">
                 <fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>Liste des liens
                 <button type="button" class="btn btn-success btn-sm ml-auto" (click)="onAddCourse()">
-                    <fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon> Ajouter
+                    <fa-icon class="mr-1" [icon]='["fas", "plus"]'></fa-icon> Ajouter
                 </button>
             </div>
             <div class="card-body">
 
                 <!-- DIFFERATE -->
                 <div class="form-group form-inline row">
-                    <label class="col-3" for="liveUrl">Full text search</label>
-                    <input class="form-control ml-2 w-100 col-8" type="text"
-                        name="searchTerm" [(ngModel)]="countryService.searchTerm" /><span class="ml-3"
-                        *ngIf="countryService.loading$ | async">Loading...</span></div>
+                    <label class="col-2" for="liveLink">Full text search</label>
+                    <input class="form-control ml-2 w-100 col-9" type="text" name="searchTerm" (input)="onSearchChange($event.target.value)" /></div>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -62,25 +79,24 @@
                                 {{ country.Description }}
                             </td>
                             <td class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-warning btn-sm ">
-                                    <fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>
+                                <button type="button" class="btn btn-warning btn-sm " (click)="onEditCourse(country)">
+                                    <fa-icon class="mr-1" [icon]='["fas", "edit"]'></fa-icon>
                                 </button>
-                                <button type="button" class="btn btn-danger btn-sm ml-2">
-                                    <fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>
+                                <button type="button" class="btn btn-danger btn-sm ml-2" (click)="onDeleteCountry(country)">
+                                    <fa-icon class="mr-1" [icon]='["fas", "trash-alt"]'></fa-icon>
                                 </button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="d-flex justify-content-between p-2">
-                    <ngb-pagination [collectionSize]="total$ | async" [(page)]="countryService.page"
-                        [pageSize]="countryService.pageSize"></ngb-pagination><select class="custom-select"
-                        style="width: auto;" name="pageSize" [(ngModel)]="countryService.pageSize">
+                <!-- <div class="d-flex justify-content-between p-2">
+                    <ngb-pagination [collectionSize]="total$ | async" [(page)]="countryService.page" [pageSize]="countryService.pageSize"></ngb-pagination>
+                    <select class="custom-select" style="width: auto;" name="pageSize" [(ngModel)]="countryService.pageSize">
                         <option [ngValue]="2">2 items per page</option>
                         <option [ngValue]="4">4 items per page</option>
                         <option [ngValue]="6">6 items per page</option>
                     </select>
-                </div>
+                </div> -->
 
             </div>
         </sb-card>

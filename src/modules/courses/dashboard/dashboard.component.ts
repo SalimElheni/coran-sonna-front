@@ -30,7 +30,9 @@ export class DashboardComponent implements OnInit {
     sortedDirection!: string;
 
     courses: LinkModel[] = [];
-    liveUrl = 'hhhhhhhhhhhhhhhhhhhhhhhhh';
+    coursesALL: LinkModel[] = [];
+    liveLink = {} as LinkModel;
+    isLiveUrlDisabled = true;
 
     @ViewChildren(SBSortableHeaderDirective) headers!: QueryList<SBSortableHeaderDirective>;
 
@@ -46,11 +48,25 @@ export class DashboardComponent implements OnInit {
         this.countries$ = this.countryService.countries$;
         this.total$ = this.countryService.total$;
 
-        this.coursesService.getCourse().subscribe(results => {
+        this.loadData();
+    }
+    loadData() {
+        this.coursesService.getCourses().subscribe(results => {
             if (results.Success === true) {
                 this.courses = results.Body;
+                this.coursesALL = [...this.courses];
             }
         });
+
+        this.coursesService.getLiveLink().subscribe(results => {
+            if (results.Success === true) {
+                this.liveLink = results.Body;
+            }
+        });
+    }
+    onSaveLiveLink() {
+        this.isLiveUrlDisabled = !this.isLiveUrlDisabled;
+        this.coursesService.setLiveLink(this.liveLink).subscribe();
     }
 
     onSort({ column, direction }: SortEvent) {
@@ -62,6 +78,53 @@ export class DashboardComponent implements OnInit {
     }
     onAddCourse() {
         const modalRef = this.modalService.open(CourseModalComponent, { size: 'lg' });
-        // modalRef.componentInstance.user = this.user;
+        modalRef.componentInstance.model = {
+            Id: -1,
+            Link: '',
+            Description: '',
+            Title: '',
+        } as LinkModel;
+        const newCourse = modalRef.componentInstance.model;
+        modalRef.result.then(
+            data => {
+                this.coursesService.addCourse(newCourse).subscribe(results => {
+                    this.loadData();
+                });
+            },
+            reason => {}
+        );
+        console.log('---', modalRef.componentInstance.model);
+    }
+    onEditCourse(item: LinkModel) {
+        const modalRef = this.modalService.open(CourseModalComponent, { size: 'lg' });
+        modalRef.componentInstance.model = item;
+        const editedCourse = modalRef.componentInstance.model;
+        modalRef.result.then(
+            data => {
+                this.coursesService.editCourse(editedCourse).subscribe(results => {
+                    this.loadData();
+                });
+            },
+            reason => {}
+        );
+    }
+    onDeleteCountry(item: LinkModel) {
+        if (confirm(`Are you sure to delete "${item.Title}" ?`)) {
+            this.coursesService.deleteCourse(item.Id).subscribe(results => {
+                this.loadData();
+            });
+        }
+    }
+    onSearchChange(text: string) {
+        if (text && text.length > 1) {
+            const query = text.toLocaleLowerCase();
+            this.courses = this.coursesALL.filter(
+                x =>
+                    x.Title.toLocaleLowerCase().includes(query) ||
+                    x.Description.toLocaleLowerCase().includes(query)
+            );
+        } else {
+            this.courses = [...this.coursesALL];
+        }
     }
 }

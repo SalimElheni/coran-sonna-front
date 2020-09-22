@@ -1,6 +1,6 @@
 <div class="container pb-4">
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#"></a>
+        <a class="navbar-brand" href="/courses/dashboard"><fa-icon class="mr-1" [icon]='["fas", "home"]'></fa-icon></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -55,11 +55,11 @@
                     <div class="col-12">
                         <h2>رابط البث المباشر</h2>
                         <hr />
-                        <div class="card d-inline-block mr-3 mb-3">
+                        <div class="card d-inline-block mr-3 mb-3" (click)="openLiveLink()">
                             <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                             <div class="card-body">
-                                <h5 class="card-title">{{"course.Title"}}</h5>
-                                <p class="card-text">{{"course.Description"}}</p>
+                                <h5 class="card-title">{{liveLink.Title}}</h5>
+                                <p class="card-text">{{liveLink.Description}}</p>
                             </div>
                             <div class="card-footer">
                                 <small class="text-muted">Last updated 3 mins ago</small>
@@ -71,7 +71,7 @@
                         <h2>روابط تسجيلات الدروس</h2>
                         <hr />
                         <div class="card-columns-">
-                            <div class="card d-inline-block mr-3 mb-3" *ngFor="let course of courses">
+                            <div class="card d-inline-block mr-3 mb-3" *ngFor="let course of courses" (click)="openCourseLink(course)">
                                 <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                                 <div class="card-body">
                                     <h5 class="card-title">{{course.Title}}</h5>
@@ -89,7 +89,7 @@
 
             <!-- Actualites -->
             <div class="col-4">
-                <br />
+                <!-- <br /> -->
                 <h2 style="text-align:right">المستجدات</h2>
                 <hr />
                 <div class="">
