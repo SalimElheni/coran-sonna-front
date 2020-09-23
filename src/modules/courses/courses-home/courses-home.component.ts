@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocalstorageService } from '@app/_services/local-storage.service';
 
 import { LinkModel } from '../_models';
 import { CoursesService } from '../_services/courses.service';
@@ -11,9 +13,16 @@ import { CoursesService } from '../_services/courses.service';
 export class CoursesHomeComponent implements OnInit {
     courses: LinkModel[] = [];
     liveLink = {} as LinkModel;
-    constructor(public coursesService: CoursesService) {}
+    isAdmin = false;
+    public isMenuCollapsed = true;
+    constructor(
+        public coursesService: CoursesService,
+        private localStorage: LocalstorageService,
+        private router: Router
+    ) {}
 
     ngOnInit(): void {
+        this.isAdmin = this.localStorage.getItem('isAdmin') === 'true';
         this.coursesService.getCourses().subscribe(results => {
             if (results.Success === true) {
                 this.courses = results.Body;
@@ -35,5 +44,9 @@ export class CoursesHomeComponent implements OnInit {
     }
     opnCoursLink(course: LinkModel) {
         window.open(course.Link, '_blank');
+    }
+    onLogout() {
+        this.localStorage.destroyToken();
+        this.router.navigateByUrl('/');
     }
 }

@@ -19,6 +19,7 @@ import {
     faPlus,
     faSave,
     faSearch,
+    faSignOutAlt,
     faTable,
     faTachometerAlt,
     faTrash,
@@ -50,4 +51,5 @@ export const fontAwesomeSolidIcons = {
     faTrashAlt,
     faCheck,
     faHome,
+    faSignOutAlt,
 };

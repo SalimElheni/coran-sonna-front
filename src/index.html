@@ -1,7 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
+        <style>
+
+body{
+                direction:rtl !important;
+                text-align:right !important;
+            }
+            body sb-dashboard,
+            body sb-layout-dashboard,
+            body #layoutSidenav,
+            body #layoutSidenav_nav{
+
+                direction:ltr !important;
+                text-align:left !important;
+            }
+            .fixed-top, .sb-nav-fixed #layoutSidenav_nav{
+right: unset !important;
+            }
+        </style>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>ACS - Association Coran Sonna</title>
         <base href="/" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
