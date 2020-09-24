@@ -24,7 +24,9 @@ import {
     faTachometerAlt,
     faTrash,
     faTrashAlt,
-    faUser
+    faUser,
+    faNewspaper,
+    faMapMarker
 } from '@fortawesome/free-solid-svg-icons';
 
 export const fontAwesomeSolidIcons = {
@@ -52,4 +54,6 @@ export const fontAwesomeSolidIcons = {
     faCheck,
     faHome,
     faSignOutAlt,
+    faNewspaper,
+    faMapMarker
 };

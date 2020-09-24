@@ -4,6 +4,7 @@ import { LocalstorageService } from '@app/_services/local-storage.service';
 
 import { LinkModel } from '../_models';
 import { CoursesService } from '../_services/courses.service';
+import { NewsService } from '../_services/news.service';
 
 @Component({
     selector: 'sb-courses-home',
@@ -11,11 +12,13 @@ import { CoursesService } from '../_services/courses.service';
     styleUrls: ['./courses-home.component.scss'],
 })
 export class CoursesHomeComponent implements OnInit {
+    news: LinkModel[] = [];
     courses: LinkModel[] = [];
     liveLink = {} as LinkModel;
     isAdmin = false;
     public isMenuCollapsed = true;
     constructor(
+        private newsService:NewsService,
         public coursesService: CoursesService,
         private localStorage: LocalstorageService,
         private router: Router
@@ -36,6 +39,16 @@ export class CoursesHomeComponent implements OnInit {
         this.coursesService.getLiveLink().subscribe(results => {
             if (results.Success === true) {
                 this.liveLink = results.Body;
+            }
+        });
+        this.newsService.getAll().subscribe(results => {
+            if (results.Success === true) {
+                this.news = results.Body;
+                if (this.news && Array.isArray(this.news) && this.news.length > 0) {
+                    this.news.sort((x, y) => {
+                        return x.Id == y.Id ? 0 : x.Id > y.Id ? -1 : 1;
+                    });
+                }
             }
         });
     }

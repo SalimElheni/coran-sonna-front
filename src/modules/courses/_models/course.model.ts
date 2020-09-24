@@ -9,4 +9,5 @@ export interface LinkModel {
     Title: string;
     Description: string;
     Link: string;
+    LastEdit: string | Date| null;
 }

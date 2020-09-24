@@ -1,0 +1,65 @@
+<sb-layout-dashboard>
+    <div class="main-content">
+        
+        <sb-card>
+            <div class="card-header d-flex">
+                <fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>News
+                <button type="button" class="btn btn-success btn-sm ml-auto" (click)="onAddCourse()">
+                    <fa-icon class="mr-1" [icon]='["fas", "plus"]'></fa-icon> Add
+                </button>
+            </div>
+            <div class="card-body">
+
+                <!-- DIFFERATE -->
+                <div class="form-group form-inline row">
+                    <label class="col-2" for="liveLink">Full text search</label>
+                    <input class="form-control ml-2 w-100 col-9" type="text" name="searchTerm" (input)="onSearchChange($event.target.value)" /></div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col" sbSortable="name" (sort)="onSort($event)"><span>Title</span>
+                                <sb-sort-icon *ngIf='sortedColumn === "name"' [direction]="sortedDirection">
+                                </sb-sort-icon>
+                            </th>
+                            <th scope="col" sbSortable="area" (sort)="onSort($event)"><span>Url</span>
+                                <sb-sort-icon *ngIf='sortedColumn === "area"' [direction]="sortedDirection">
+                                </sb-sort-icon>
+                            </th>
+                            <th scope="col" sbSortable="population" (sort)="onSort($event)"><span>Description</span>
+                                <sb-sort-icon *ngIf='sortedColumn === "population"' [direction]="sortedDirection">
+                                </sb-sort-icon>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let country of courses">
+                            <th scope="row">{{ country.Id }}</th>
+
+                            <td>
+                                {{ country.Title }}
+                            </td>
+                            <td>
+                                {{ country.Link }}
+                            </td>
+                            <td>
+                                {{ country.Description }}
+                            </td>
+                            <td class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-warning btn-sm " (click)="onEditCourse(country)">
+                                    <fa-icon class="mr-1" [icon]='["fas", "edit"]'></fa-icon>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm ml-2" (click)="onDeleteCountry(country)">
+                                    <fa-icon class="mr-1" [icon]='["fas", "trash-alt"]'></fa-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </sb-card>
+
+    </div>
+</sb-layout-dashboard>

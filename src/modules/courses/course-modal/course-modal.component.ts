@@ -10,6 +10,7 @@ import { LinkModel } from '../_models';
 })
 export class CourseModalComponent implements OnInit {
     model: LinkModel = {} as LinkModel;
+    title: string = '';
     constructor(public modal: NgbActiveModal) {}
 
     ngOnInit(): void {}

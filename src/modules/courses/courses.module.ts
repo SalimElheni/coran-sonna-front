@@ -12,9 +12,10 @@ import { CoursesRoutingModule } from './courses-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CoursesHomeComponent } from './courses-home/courses-home.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
-    declarations: [DashboardComponent, CourseModalComponent, LandingPageComponent, CoursesHomeComponent],
+    declarations: [DashboardComponent, CourseModalComponent, LandingPageComponent, CoursesHomeComponent, NewsComponent],
     imports: [
         CommonModule,
         CoursesRoutingModule,

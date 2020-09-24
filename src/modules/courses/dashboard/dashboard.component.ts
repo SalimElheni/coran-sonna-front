@@ -84,6 +84,7 @@ export class DashboardComponent implements OnInit {
             Description: '',
             Title: '',
         } as LinkModel;
+        modalRef.componentInstance.title = 'Course';
         const newCourse = modalRef.componentInstance.model;
         modalRef.result.then(
             data => {
@@ -98,6 +99,7 @@ export class DashboardComponent implements OnInit {
     onEditCourse(item: LinkModel) {
         const modalRef = this.modalService.open(CourseModalComponent, { size: 'lg' });
         modalRef.componentInstance.model = item;
+        modalRef.componentInstance.title = 'Course';
         const editedCourse = modalRef.componentInstance.model;
         modalRef.result.then(
             data => {

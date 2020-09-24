@@ -6,7 +6,7 @@ export const sideNavSections: SideNavSection[] = [
     },
     {
         text: 'DASHBOARD',
-        items: ['courses'],
+        items: ['courses', 'news'],
     },
     // {
     //     text: 'INTERFACE',
@@ -33,6 +33,11 @@ export const sideNavItems: SideNavItems = {
         icon: 'book-open',
         text: 'Courses',
         link: '/courses/dashboard',
+    },
+    news: {
+        icon: 'newspaper',
+        text: 'News',
+        link: '/courses/news',
     },
     layouts: {
         icon: 'columns',

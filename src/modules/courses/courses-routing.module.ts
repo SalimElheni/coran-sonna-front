@@ -6,11 +6,13 @@ import { AuthGuardService as AuthGuard } from './../../app/_guards/auth-guard.se
 import { CoursesHomeComponent } from './courses-home/courses-home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { NewsComponent } from './news/news.component';
 
 const routes: Routes = [
     { path: '', component: LandingPageComponent },
     { path: 'home', component: CoursesHomeComponent, canActivate: [AuthGuard] },
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard, AdminGuard] },
+    { path: 'news', component: NewsComponent, canActivate: [AuthGuard, AdminGuard] },
 ];
 
 @NgModule({
