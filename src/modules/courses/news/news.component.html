@@ -18,17 +18,13 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col" sbSortable="name" (sort)="onSort($event)"><span>Title</span>
-                                <sb-sort-icon *ngIf='sortedColumn === "name"' [direction]="sortedDirection">
-                                </sb-sort-icon>
+                            <th scope="col" sbSortable="name" ><span>Title</span>
                             </th>
-                            <th scope="col" sbSortable="area" (sort)="onSort($event)"><span>Url</span>
-                                <sb-sort-icon *ngIf='sortedColumn === "area"' [direction]="sortedDirection">
-                                </sb-sort-icon>
+                            <th scope="col" sbSortable="area" ><span>Url</span>
+                                
                             </th>
-                            <th scope="col" sbSortable="population" (sort)="onSort($event)"><span>Description</span>
-                                <sb-sort-icon *ngIf='sortedColumn === "population"' [direction]="sortedDirection">
-                                </sb-sort-icon>
+                            <th scope="col" sbSortable="population" ><span>Description</span>
+                                
                             </th>
                             <th></th>
                         </tr>

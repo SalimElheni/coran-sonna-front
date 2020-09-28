@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    api: 'https://localhost:5001/api',
+    // api: 'https://localhost:5001/api',
+    api: 'http://inline-queue-api.pos.tn/api',
 };
 
 /*

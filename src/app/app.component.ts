@@ -18,7 +18,7 @@ export class AppComponent {
                 while (snapshot.firstChild !== null) {
                     snapshot = snapshot.firstChild;
                 }
-                this.titleService.setTitle(snapshot.data.title || 'ACS - Association Coran Sonna');
+                this.titleService.setTitle(snapshot.data.title || 'جمعية القرآن والسنة');
             });
     }
 }
